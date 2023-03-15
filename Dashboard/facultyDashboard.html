@@ -1,71 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Boostrap 5.0.2 -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- fontawesome 4.7.0 -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+  <!-- Boostrap 5.0.2 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="./dashboard.css">
+  <!-- fontawesome 4.7.0 -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-    <title>Faculty Dashboard</title>
-  </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">AttendanceSheet</a>
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="btn btn-secondary" id="faculty-logout" href="#">Logout</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <!-- navbar -->
-    </header>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./dashboard.css">
 
-    <main>
-      <!-- profile info -->
-      <div class="left-navbar">
-        <div class="container text-center">
-          <h2 class="py-3">Faculty Portal</h2>
-          
-          <img src="./images/profile_placeholder.webp" class="img-fluid rounded-circle profile-image" alt="">
+  <title>Faculty Dashboard</title>
+</head>
 
-          <h4 class="pt-3"><span id="faculty-name">Dr. Charitra Agarwal</span></h3>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">AttendanceSheet</a>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="btn btn-secondary" id="faculty-logout" href="#">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- navbar -->
+  </header>
+
+  <main>
+    <!-- profile info -->
+    <div class="left-navbar">
+      <div class="container text-center">
+        <h2 class="py-3">Faculty Portal</h2>
+
+        <img src="./images/profile_placeholder.webp" class="img-fluid rounded-circle profile-image" alt="">
+
+        <h4 class="pt-3"><span id="faculty-name">Dr. Charitra Agarwal</span></h3>
           <h4 class="pt-1"><span id="faculty-email">charitracsed@mnnit.ac.in</span></h3>
-          <h4 class="pt-1"><span id="date">
-            <script>
-              const dateObj = new Date();
-              document.write(dateObj.getDate()+'-'+(dateObj.getMonth()+1)+'-'+dateObj.getFullYear())</script>
-          </span></h3>
+            <h4 class="pt-1"><span id="date">
+                <script>
+                  const dateObj = new Date();
+                  document.write(dateObj.getDate() + '-' + (dateObj.getMonth() + 1) + '-' + dateObj.getFullYear())
+                </script>
+              </span></h3>
+      </div>
+    </div>
+
+    <!-- dashboard -->
+    <div class="right-section">
+
+      <div class="courses-container">
+
+        <div id="course1" class="course-card container">
+          <h2 id="course1-name" class="course-name row">MCA</h2>
+          <div class="row">
+            <!-- subject<course_no><subject_no> -->
+            
+            <a href="./attendance-list.html" target="_blank" class="subject-card card col">
+              <div>
+                <div id="course1-semester"><strong>Semester 2</strong></div>
+                <div id="subject11-name">Data Structures</div>
+                <div id="subject11-code">CS32101</div>
+              </div>
+            </a>
+            <!-- subject 1 -->
+
+            <a href="./attendance-list.html" target="_blank" class="subject-card card col">
+              <div>
+                <div id="course1-semester"><strong>Semester 4</strong></div>
+                <div id="subject12-name">Operating Systems</div>
+                <div id="subject12-code">CS34102</div>
+              </div>
+            </a>
+            <!-- subject 2 -->
+
+          </div>
         </div>
+        <!-- Course card 1 -->
+
+        <div id="course2" class="course-card container">
+          <h2 id="course2-name" class="course-name row">B.Tech</h2>
+          <div class="row">
+            <!-- subject<course_no><subject_no> -->
+
+              <a href="./attendance-list.html" target="_blank" class="subject-card card col">
+                <div>
+                  <div id="course2-semester"><strong>Semester 2</strong></div>
+                  <div id="subject21-name">Data Structures</div>
+                  <div id="subject21-code">CS32101</div>
+                </div>
+              </a>
+              <!-- subject 1 -->
+  
+              <a href="./attendance-list.html" target="_blank" class="subject-card card col">
+                <div>
+                  <div id="course2-semester"><strong>Semester 4</strong></div>
+                  <div id="subject22-name">Operating Systems</div>
+                  <div id="subject22-code">CS34102</div>
+                </div>
+              </a>
+              <!-- subject 2 -->
+
+          </div>
+        </div>
+        <!-- Course card 2 -->
       </div>
 
-      <!-- dashboard -->
-      <div class="right-section"></div>
-    </main>
 
-    <!-- Boostrap 5.0.2 -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+    </div>
+  </main>
+
+  <!-- Boostrap 5.0.2 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>

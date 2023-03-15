@@ -16,6 +16,7 @@
 }
 
 .right-section {
+  /* background-color: blue; */
 }
 
 /* layout for bigger screens */
@@ -48,4 +49,30 @@
   width: 40%;
   border: 5px solid grey;
   padding: 2px;
+}
+
+.courses-container {
+  max-width: fit-content;
+}
+
+.course-card {
+  padding: 2em;
+  text-align: center;
+}
+
+.course-name {
+  font-size: x-large;
+}
+
+.subject-card {
+  margin: 0 20px; 
+  margin-right: 20px;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: black;
+}
+
+.subject-card div {
+  margin: 0.6rem 0;
 }
