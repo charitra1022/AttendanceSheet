@@ -1,0 +1,51 @@
+/* default styles */
+.left-navbar {
+  background: #b24592;
+  background: -webkit-linear-gradient(to right, #f15f79, #b24592);
+  background: linear-gradient(to right, #f15f79, #b24592);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+}
+
+.left-navbar h4 {
+  font-size: 2vh;
+}
+
+.right-section {
+}
+
+/* layout for bigger screens */
+@media only screen and (min-width: 992px) {
+  .left-navbar {
+    position: fixed;
+    left: 0;
+    top: 7.4vh;
+    bottom: 0;
+    right: 75%;
+    overflow: hidden;
+  }
+
+  .right-section {
+    position: absolute;
+    left: 25%;
+    top: 7.4vh;
+    bottom: 0;
+    right: 0;
+    overflow-y: auto;
+    background-color: rgb(240, 240, 240);
+  }
+
+  .left-navbar h4 {
+    font-size: 2vw;
+  }
+}
+
+.profile-image {
+  width: 40%;
+  border: 5px solid grey;
+  padding: 2px;
+}
