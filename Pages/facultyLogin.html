@@ -40,7 +40,7 @@
           <div class="card-content p-5 text-center">
             <h2 class="mb-5">Faculty Login</h2>
 
-            <form>
+            <form onsubmit="return login()" method="post">
               <div class="mb-3">
                 <input
                   name="faculty-login-email"
@@ -62,12 +62,12 @@
                   placeholder="Enter Password"
                 />
               </div>
-              <input
+              <!-- <input
                 name="login-role"
                 type="hidden"
                 id="login-role"
                 value="faculty"
-              />
+              /> -->
               <button type="submit" class="btn btn-primary">Login</button>
             </form>
             <!-- form -->
@@ -85,5 +85,8 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Login JS -->
+    <script src="login.js"></script>
   </body>
 </html>
