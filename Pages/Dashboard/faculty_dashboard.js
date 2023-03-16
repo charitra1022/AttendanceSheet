@@ -2,6 +2,10 @@
 //   const teacher_id = parseInt(params['teacher_id']);
 // }
 
+// just a small dummy function until logout is implemented in backend
+function back() {
+  window.history.back();
+}
 
 function updatePageData() {
   const teacher_details = JSON.parse(window.localStorage.getItem("teacher_details"));
