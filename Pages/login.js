@@ -1,5 +1,6 @@
 // navigate to the dashboard after login
-const dashboardURL = `./Dashboard/facultyDashboard.html?teacher_id={teacher_id}`;
+// const dashboardURL = `./Dashboard/facultyDashboard.html?teacher_id={teacher_id}`;
+const dashboardURL = "./Dashboard/facultyDashboard.html";
 
 const dummyId = {
   email: "mmgore@mnnit.ac.in",
@@ -43,10 +44,13 @@ function login() {
       // if the data of teacher is found
       if (objects['success'] === true) {
         // localStorage.setItem("jwt", objects['accessToken']);
+        
+        // save teacher personal details to localStorage
+        const teacher_details = objects['result'][0]
+        window.localStorage.setItem("teacher_details", JSON.stringify(teacher_details));
 
-        const teacher_id = objects['result'][0]['teacher_id']
-
-        window.location.href = dashboardURL.replace("{teacher_id}", teacher_id);
+        // window.location.href = dashboardURL.replace("{teacher_id}", 4);
+        window.location.href = dashboardURL;
 
         // Swal.fire({
         //   text: objects['message'],
