@@ -1,5 +1,4 @@
 // navigate to the dashboard after login
-// const dashboardURL = `./Dashboard/facultyDashboard.html?teacher_id={teacher_id}`;
 const dashboardURL = "./facultyDashboard.html";
 
 const dummyId = {
@@ -49,28 +48,11 @@ function login() {
         const teacher_details = objects['result'][0]
         window.localStorage.setItem("teacher_details", JSON.stringify(teacher_details));
 
-        // window.location.href = dashboardURL.replace("{teacher_id}", 4);
         window.location.href = dashboardURL;
-
-        // Swal.fire({
-        //   text: objects['message'],
-        //   icon: 'success',
-        //   confirmButtonText: 'OK'
-        // }).then((result) => {
-        //   if (result.isConfirmed) {
-        //     window.location.href = dashboardURL;
-        //   }
-        // });
       } 
       // if the data of teacher is not found
       else {
-        alert(objects['msg']);
-
-        // Swal.fire({
-        //   text: objects['message'],
-        //   icon: 'error',
-        //   confirmButtonText: 'OK'
-        // });
+        alert(objects['error']);
       }
     }
   };
