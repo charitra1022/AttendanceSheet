@@ -1,0 +1,143 @@
+/* custom fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap");
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.container-fluid {
+  background-color: #54bab9;
+  height: 100vh;
+  padding: 2rem;
+}
+
+/* navbar styles */
+.header {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.header .brand {
+  color: #fbf8f1;
+}
+
+.header .login-btn {
+  text-align: right;
+}
+.header .login-btn .btn {
+  border-radius: 2rem;
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 0.5rem 2rem;
+}
+.header .login-btn .btn:hover {
+  border-radius: 2rem;
+  background-color: #0e8388;
+  color: white;
+  border: none;
+  padding: 0.5rem 2rem;
+}
+
+/* page card styles */
+.card-container {
+  background-color: white;
+  width: 75vw;
+  height: 60vh;
+  margin-top: 4rem;
+  border-radius: 1rem;
+}
+
+/* Illustration styles */
+.login-illustration-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-illustration {
+  max-width: 30vw;
+  border-radius: 2rem;
+}
+
+/* Logo styles */
+.right-section .logo-container {
+  position: relative;
+  width: 100%;
+}
+
+.right-section .logo-container img {
+  display: block;
+  width: 10vw;
+  padding: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (min-width: 992px) {
+  .card-container {
+    padding: 1rem;
+    padding-right: 2rem;
+    height: 70vh;
+    background-color: #fff;
+  }
+}
+
+/* hide left section on smaller screens */
+@media only screen and (max-width: 992px) {
+  .card-container .left-section {
+    display: none;
+  }
+}
+
+.form-btn {
+  background-color: #54bab9;
+  width: 15vw;
+  border-radius: 2rem;
+  color: white;
+}
+
+.form-btn:hover {
+  width: 15vw;
+  border-radius: 2rem;
+  border: 2px solid #54bab9;
+}
+
+@media (max-width: 576px) {
+  .form-btn {
+    font-size: 3vw;
+  }
+}
+
+@media (min-width: 768px) {
+  .form-btn {
+    font-size: medium;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .card-container .right-section {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .card-container .right-section {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .header .login-btn .btn {
+    font-size: medium;
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .header .login-btn .btn {
+    font-size: 2.4vw;
+  }
+}
+

@@ -1,51 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Boostrap 5.0.2 -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="./login.css" />
+<!-- Bootstrap 5.3.0-alpha1 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-    <title>Faculty Login</title>
-  </head>
+<!-- Custom CSS -->
+<link rel="stylesheet" href="./styles/login.css">
 
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">AttendanceSheet</a>
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="./studentLogin.html">Student Login</a>
-            </li>
-          </ul>
+<title>Faculty Login</title>
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <!-- navbar -->
+    <div class="header row p-1">
+      <div class="col brand">
+        <h2>AttendanceSheet</h2>
+      </div>
+      <div class="col login-btn">
+        <a href="./studentLogin.html" class="btn btn-primary" role="button">Student Login</a>
+      </div>
+    </div>
+    <!-- navbar -->
+
+    <div class="card-container container">
+      <div class="row">
+        <div class="left-section col md-d-none">
+          <div class="login-illustration-container">'
+            <img src="./images/login-illustration.webp" class="login-illustration" alt="" />
+          </div>
         </div>
-      </nav>
-      <!-- Nav bar -->
-    </header>
 
-    <main>
-      <div class="card-container">
-        <div class="card">
-          <div class="card-content p-5 text-center">
-            <h2 class="mb-5">Faculty Login</h2>
 
+        <div class="right-section col container">
+          <div class="row">
+            <div class="logo-container">
+              <img src="./images/logo.png" alt="" />
+            </div>
+          </div>
+          
+          <h5 class="row text-center d-block fw-bold p-2">
+            Faculty Login
+          </h5>
+
+          <div class="row form-section">
             <form onsubmit="return login()" method="post">
               <div class="mb-3">
                 <input
                   name="faculty-login-email"
                   type="email"
-                  class="form-control"
+                  class="form-control shadow-none"
                   id="faculty-login-email"
                   placeholder="Enter GSuite Email"
                 />
@@ -57,7 +67,7 @@
                 <input
                   name="faculty-login-password"
                   type="password"
-                  class="form-control"
+                  class="form-control shadow-none"
                   id="faculty-login-password"
                   placeholder="Enter Password"
                 />
@@ -68,25 +78,30 @@
                 id="login-role"
                 value="faculty"
               /> -->
-              <button type="submit" class="btn btn-primary">Login</button>
+              <div class="d-block text-center">
+                <button type="submit" class="btn form-btn">Login</button>
+              </div>
             </form>
             <!-- form -->
-          </div>
-          <!-- card-content -->
-        </div>
-        <!-- card -->
-      </div>
-      <!-- card-container -->
-    </main>
 
-    <!-- Boostrap 5.0.2 -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Bootstrap 5.3.0-alpha1 -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+    integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+    crossorigin="anonymous"></script>
 
     <!-- Login JS -->
-    <script src="login.js"></script>
-  </body>
+    <script src="./js/login.js"></script>
+</body>
+
 </html>
