@@ -1,6 +1,6 @@
 // navigate to the dashboard after login
 // const dashboardURL = `./Dashboard/facultyDashboard.html?teacher_id={teacher_id}`;
-const dashboardURL = "./Dashboard/facultyDashboard.html";
+const dashboardURL = "./facultyDashboard.html";
 
 const dummyId = {
   email: "mmgore@mnnit.ac.in",
