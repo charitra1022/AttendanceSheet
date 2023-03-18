@@ -26,7 +26,7 @@ const getSubjectCard = (params) => {
   var course_no = params.course_no;
 
   const subjectCardElement = `
-        <a href="./attendance-list.html" target="_blank" class="subject-card card col">
+        <a href="./attendance-list.html?subject_code=${sub_code}" target="_blank" class="subject-card card col">
           <div>
             <div><strong id="course${course_no}-semester">Semester ${semester_no}</strong></div>
             <div id="subject${course_no}${sub_no}-name">${sub_name}</div>
