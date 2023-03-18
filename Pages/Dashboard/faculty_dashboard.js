@@ -77,7 +77,7 @@ function updatePageData() {
     teacher_details.teacher_name;
 
   // fetch teacher data
-  const url = `http://localhost:5000/teacher?teacher_id=${teacher_details.teacher_id}`;
+  const url = `http://localhost:5000/teacher-subjects?teacher_id=${teacher_details.teacher_id}`;
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
