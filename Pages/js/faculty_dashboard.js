@@ -16,6 +16,7 @@ const getSubjectCard = (params) => {
         sub_name: string of subject name
         sub_code: string of subject code
         course_no: integer representing course count
+        teacher_id: integer representing teacher id
     }
   */
 
@@ -24,9 +25,10 @@ const getSubjectCard = (params) => {
   var sub_name = params.sub_name;
   var sub_code = params.sub_code;
   var course_no = params.course_no;
+  var teacher_id = params.teacher_id;
 
   const subjectCardElement = `
-        <a href="./attendance-list.html?subject_code=${sub_code}" target="_blank" class="subject-card card col">
+        <a href="./attendance-list.html?subject_code=${sub_code}&teacher_id=${teacher_id}" target="_blank" class="subject-card card col">
           <div>
             <div><strong id="course${course_no}-semester">Semester ${semester_no}</strong></div>
             <div id="subject${course_no}${sub_no}-name">${sub_name}</div>
@@ -96,6 +98,7 @@ function updatePageData() {
           sub_name: subject.subject_name,
           sub_code: subject.subject_code,
           course_no: 1,
+          teacher_id: teacher_details.teacher_id,
         };
         counter++;
 
