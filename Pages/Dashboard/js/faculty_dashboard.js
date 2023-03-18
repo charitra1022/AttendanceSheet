@@ -91,7 +91,7 @@ function updatePageData() {
       subjects.forEach((subject) => {
         // data to send to the card function for displaying information
         const sub_params = {
-          semester_no: subject.semester,
+          semester_no: subject.subject_code[3],
           sub_no: counter,
           sub_name: subject.subject_name,
           sub_code: subject.subject_code,
