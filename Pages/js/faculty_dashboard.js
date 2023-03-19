@@ -28,14 +28,16 @@ const getSubjectCard = (params) => {
   var teacher_id = params.teacher_id;
 
   const subjectCardElement = `
-        <a href="./attendance-list.html?subject_code=${sub_code}&teacher_id=${teacher_id}" target="_blank" class="subject-card card col">
-          <div>
-            <div><strong id="course${course_no}-semester">Semester ${semester_no}</strong></div>
-            <div id="subject${course_no}${sub_no}-name">${sub_name}</div>
-            <div id="subject${course_no}${sub_no}-code">${sub_code}</div>
-          </div>
-        </a>
-        <!-- subject ${sub_no} -->
+    <div>
+      <a href="./attendance-list.html?subject_code=${sub_code}&teacher_id=${teacher_id}" target="_blank" class="subject-card card">
+        <div>
+          <div><strong id="course${course_no}-semester">Semester ${semester_no}</strong></div>
+          <div id="subject${course_no}${sub_no}-name">${sub_name}</div>
+          <div id="subject${course_no}${sub_no}-code">${sub_code}</div>
+        </div>
+      </a>
+    </div>
+  <!-- subject ${sub_no} -->
 `;
   return subjectCardElement;
 };
@@ -54,14 +56,17 @@ const getCourseCard = (params) => {
   var course_name = params.course_name;
 
   const courseCardElement = `
-      <div id="course${course_no}" class="course-card container">
-        <h2 id="course${course_no}-name" class="course-name row">${course_name}</h2>
-        <div id="course${course_no}-subjects-container" class="row">
-          <!- subject card elements goes here ->
-          ${params.subjects}
-        </div>
+  <div id="course${course_no}" class="course-card container">
+      <div class="course-heading row">
+          <h1 id="course${course_no}-name" class="course-name">${course_name}</h1>
       </div>
-      <!-- Course card ${course_no} -->
+
+      <!- subject card flex container goes here -->
+      <div id="course${course_no}-subjects-container" class="flex-container">
+        ${params.subjects}              
+      </div>
+  </div>
+  <!-- Course card ${course_no} -->
   `;
   return courseCardElement;
 };

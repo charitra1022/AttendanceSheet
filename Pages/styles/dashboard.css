@@ -1,27 +1,76 @@
 /* default styles */
-.left-navbar {
-  background: #b24592;
-  background: -webkit-linear-gradient(to right, #f15f79, #b24592);
-  background: linear-gradient(to right, #f15f79, #b24592);
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@460&display=swap");
 
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #edfefe;
+}
+
+.header {
+  width: 101%;
+  height: 5rem;
+  background-color: #54bab9;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+}
+
+.header .brand {
+  margin-left: 2rem;
+  color: #fbf8f1;
+}
+@media only screen and (max-width: 379px) {
+  .header .brand {
+    margin-left: 0.5rem;
+    color: #fbf8f1;
+  }
+}
+.header .logoutbtn {
+  margin-top: -1.7rem;
+  margin-right: 2rem;
+  text-align: right;
+}
+
+.header .logoutbtn .btn {
+  border-radius: 2rem;
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 0.5rem 2rem;
+}
+
+.header .logoutbtn .btn:hover {
+  border-radius: 2rem;
+  background-color: #0e8388;
+  color: white;
+  border: none;
+  padding: 0.5rem 2rem;
+}
+
+.left-navbar {
+  background: #0e8388;
+  margin-top: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
-
   color: white;
 }
 
 .left-navbar h4 {
   font-size: 2vh;
 }
-
-.right-section {
-  /* background-color: blue; */
-}
-
 /* layout for bigger screens */
 @media only screen and (min-width: 992px) {
+  .header .brand {
+    margin-top: 1rem;
+    margin-left: 2rem;
+    color: #fbf8f1;
+    margin-bottom: 2rem;
+  }
   .left-navbar {
+    margin-top: 20px;
+    align-items: flex-start;
+    padding-top: 2rem;
     position: fixed;
     left: 0;
     top: 7.4vh;
@@ -29,50 +78,166 @@
     right: 75%;
     overflow: hidden;
   }
-
+  .dash-heading {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    margin-bottom: -2rem;
+    margin-top: -2rem;
+    background-color: #0c6a6d;
+    height: 200px;
+  }
+  .profile-image {
+    border: 6px solid #0c6a6d;
+    margin-top: -3.5rem;
+    width: 70%;
+  }
   .right-section {
-    position: absolute;
+    margin-top: 1rem;
+    padding-top: 2rem;
+    position: fixed;
     left: 25%;
-    top: 7.4vh;
+    top: 9.4vh;
     bottom: 0;
     right: 0;
     overflow-y: auto;
-    background-color: rgb(240, 240, 240);
+    padding: 1rem;
+    margin-top: 5px;
+    background-color: #edfefe;
   }
 
   .left-navbar h4 {
     font-size: 2vw;
   }
+  .date-container {
+    display: none;
+  }
+  .left-footer {
+    margin-bottom: 1rem;
+  }
+  .left-footer .day {
+    color: black;
+    background-color: rgba(216, 254, 250, 0.703);
+    padding: 0.5rem;
+    border-radius: 10px;
+    /* border: 3px solid #0e8388; */
+    box-shadow: 0 0.3rem 0.3rem rgba(58, 70, 69, 0.703);
+  }
+  .left-footer .month {
+    margin-left: 5px;
+    color: black;
+    background-color: rgba(216, 254, 250, 0.703);
+    padding: 0.5rem;
+    border-radius: 10px;
+    /* border: 3px solid #0e8388; */
+    box-shadow: 0 0.3rem 0.3rem rgba(58, 70, 69, 0.703);
+  }
+  .left-footer .year {
+    margin-left: 5px;
+    color: black;
+    background-color: rgba(216, 254, 250, 0.703);
+    padding: 0.5rem;
+    border-radius: 10px;
+    /* border: 3px solid #0e8388; */
+    box-shadow: 0 0.3rem 0.3rem rgba(58, 70, 69, 0.703);
+  }
+}
+@media only screen and (max-width: 768px) {
+  .header .logoutbtn .btn {
+    font-size: medium;
+    padding: 0.5rem 1rem;
+  }
+  .header .logoutbtn {
+    margin-top: 0.2rem;
+    margin-right: 2rem;
+    text-align: right;
+  }
 }
 
-.profile-image {
-  width: 40%;
-  border: 5px solid grey;
-  padding: 2px;
+@media only screen and (max-width: 576px) {
+  .header .logoutbtn .btn {
+    font-size: 2.4vw;
+  }
+  .right-section {
+    padding: 1rem;
+  }
+  .header {
+    width: 101%;
+    position: fixed;
+  }
+}
+@media only screen and (max-width: 992px) {
+  main {
+    margin-top: -0.5rem;
+    margin-right: -0.5rem;
+    background-color: #edfefe;
+  }
+  .header .logoutbtn {
+    margin-top: 0.2rem;
+    margin-right: 2rem;
+    text-align: right;
+  }
+  .left-footer {
+    display: none;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .profile-image {
+    width: 25%;
+    border: 4px solid #0c6a6d;
+  }
+  .dash-heading {
+    margin-bottom: -1rem;
+    margin-top: 1rem;
+  }
 }
 
 .courses-container {
-  max-width: fit-content;
+  max-width: 100%;
 }
-
+.flex-container {
+  width: 100%;
+  margin-right: -0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch;
+}
 .course-card {
-  padding: 2em;
+  padding: 0.5rem;
   text-align: center;
 }
-
+.course-heading {
+  text-align: left;
+  border-radius: 0.5rem;
+  border: 2px solid #cae1e1;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  box-shadow: 0.1rem 0.1rem 0.1rem #cae1e1;
+}
 .course-name {
   font-size: x-large;
 }
-
 .subject-card {
-  margin: 0 20px; 
+  text-align: center;
+  background-color: #e0fafa;
+  margin: 10px 20px;
   margin-right: 20px;
   padding: 1rem 2rem;
   border-radius: 0.5rem;
   text-decoration: none;
   color: black;
+  box-shadow: 0 0.5rem 0.5rem #e5e7e7;
 }
-
+.subject-card:hover {
+  color: rgb(113, 113, 250);
+  box-shadow: 0 0.5rem 1rem rgb(207, 205, 205);
+}
+.subject-card:active {
+  color: black;
+  box-shadow: 0 0.5rem 0.5rem #e5e7e7;
+}
 .subject-card div {
   margin: 0.6rem 0;
 }
