@@ -29,7 +29,7 @@ const getAttendanceAdapter = (params) => {
   let presentStudents = params.present;
 
   const html = `
-  <a class="attendance-item card py-3 my-3">
+  <a class="attendance-item card py-3 my-3" href="./updateAttendance.html" target="_blank">
     <div class="container">
       <div class="row">
         <div class="col text-center">${date}</div>
