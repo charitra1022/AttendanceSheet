@@ -1,52 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Boostrap 5.0.2 -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="./styles/attendance.css">
+  <!-- Boostrap 5.0.2 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 
-    <title>Attendance List</title>
-  </head>
-  <body>
-    <main>
-      <div class="container">
-        <h2>MCA</h2>
-        <h2 id="subject-code-heading"></h2>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./styles/attendance.css">
 
-        <div class="d-block">
-          <a role="button" class="btn btn-primary">New +</a>
-        </div>
-        
-        <div id="attendance-list-container" class="container-fluid">
-          <!-- data in this container will be added via js later -->
+  <title>Attendance List</title>
+</head>
 
-          <!-- If no data is present, display below div -->
-          <div class="mt-auto mb-auto">
-            You don't have any attendance list
-          </div>
-        </div>
+<body>
+  <main>
+    <div class="container">
+      <h2>MCA</h2>
+      <h2 id="subject-code-heading"></h2>
 
+      <div class="d-block">
+        <a role="button" class="btn btn-primary">New +</a>
       </div>
-    </main>
 
-    <!-- Boostrap 5.0.2 -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
+      <div id="attendance-list-container" class="container-fluid">
+        <!-- data in this container will be added via js later -->
 
-    <script src="./js/attendance-list.js"></script>
-  </body>
+        <!-- If no data is present, display below div -->
+        <div class="mt-auto mb-auto">
+          You don't have any attendance list
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Boostrap 5.0.2 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <!-- Common JS -->
+  <script src="./js/common.js"></script>
+
+  <!-- Attendance List JS -->
+  <script src="./js/attendance-list.js"></script>
+</body>
+
 </html>

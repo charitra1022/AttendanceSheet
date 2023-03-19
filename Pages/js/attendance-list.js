@@ -1,9 +1,3 @@
-// returns fetched response from API
-async function fetchData(url, options = {}) {
-  let response = await fetch(url, options);
-  return response.json();
-}
-
 const tableHead = `
 <div class="container">
   <div class="row">
@@ -21,15 +15,19 @@ const getAttendanceAdapter = (params) => {
       date: string of date in format YYYY-MM-DD
       total: integer denoting total student count in a course semester,
       present: integer denoting total present students in a class
+      teacher_id: integer denoting teacher id
+      subject_code: string denoting subject code
     }
   */
 
   let date = params.date;
   let totalStudents = params.total;
   let presentStudents = params.present;
+  let teacher_id = params.teacher_id;
+  let subject_code = params.subject_code;
 
   const html = `
-  <a class="attendance-item card py-3 my-3">
+  <a class="attendance-item card py-3 my-3" href="./updateAttendance.html?subject_code=${subject_code}&teacher_id=${teacher_id}&date=${date}" target="_blank">
     <div class="container">
       <div class="row">
         <div class="col text-center">${date}</div>
@@ -92,7 +90,12 @@ async function updatePageData(params) {
     const attDetailsUrl = `http://localhost:5000/attendence-details`;
     const data = await fetchData(attDetailsUrl, dateReqOpts);
     // add the attendance data to the list
-    attData = { ...data["resp"], date: att_date };
+    attData = {
+      ...data["resp"],
+      date: att_date,
+      teacher_id: teacher_id,
+      subject_code: sub_code,
+    };
     att_details.push(attData);
   }
   // add all date cards to a single string after data are fetched
