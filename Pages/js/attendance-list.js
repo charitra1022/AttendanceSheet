@@ -7,9 +7,9 @@ async function fetchData(url, options = {}) {
 const tableHead = `
 <div class="container">
   <div class="row">
-    <div class="col"><strong>Date</strong></div>
-    <div class="col"><strong>Total Students</strong></div>
-    <div class="col"><strong>Students Presence</strong></div>
+    <div class="col text-center"><strong>Date</strong></div>
+    <div class="col text-center"><strong>Total</strong></div>
+    <div class="col text-center"><strong>Present</strong></div>
   </div>
 </div> 
 `;
@@ -32,9 +32,9 @@ const getAttendanceAdapter = (params) => {
   <div class="card py-3 my-3">
     <div class="container">
       <div class="row">
-        <div class="col">${date}</div>
-        <div class="col">${totalStudents}</div>
-        <div class="col">${presentStudents}</div>
+        <div class="col text-center">${date}</div>
+        <div class="col text-center">${totalStudents}</div>
+        <div class="col text-center">${presentStudents}</div>
       </div>
     </div>
   </div>
