@@ -1,0 +1,8 @@
+.attendance-item {
+  text-decoration: none;
+  color: black;
+}
+
+.attendance-item:hover {
+  border: 1px solid black;
+}
