@@ -1,3 +1,58 @@
+async function updateButtonClicked() {
+  // get all input checkbox elements
+  let checkBoxes = document.getElementsByClassName("attendance-checkbox");
+
+  // store list of student reg and present status
+  let attn_details = [];
+
+  // get detail from all checkboxes
+  for (const checkBox of checkBoxes) {
+    const detail = {
+      student_id: parseInt(checkBox.getAttribute("data-student_id")),
+      present: checkBox.checked ? 1 : 0,
+    };
+    // add to list
+    attn_details.push(detail);
+  }
+
+  // get required data from the hidden fields
+  let sub_code = document.getElementById("hidden-subject_code").value;
+  let teacher_id = document.getElementById("hidden-teacher_id").value;
+  let date = document.getElementById("hidden-date").value;
+
+  // construct data to send to the API
+  const dataForApi = {
+    subject_code: sub_code,
+    teacher_id: parseInt(teacher_id),
+    date: date,
+    students: attn_details,
+  };
+
+  console.log(dataForApi);
+
+  const confirmation = confirm(
+    "This action is irreversible!\nDo you want to update Attendance sheet?\n"
+  );
+
+  if (confirmation === false) return;
+
+  const url = `http://localhost:5000/update-attendance`;
+  const options = {
+    method: "PUT",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify(dataForApi),
+  };
+
+  // disable the update mode
+  document.getElementById("enable-update-btn").click();
+
+  // update request
+  const res = await fetchData(url, options);
+  alert(res['msg']);
+}
+
 const getStudentCard = (params) => {
   /*
     params = {
@@ -8,7 +63,7 @@ const getStudentCard = (params) => {
     }
   */
 
-  let checked = "";   // to add checked option in the input field if present
+  let checked = ""; // to add checked option in the input field if present
   if (params.present === 1) checked = "checked";
 
   const html = `
@@ -60,6 +115,15 @@ async function updatePageData(params) {
     const newData = { ...item, sno: counter };
     studentCards += getStudentCard(newData);
   });
+
+  // add hidden input fields for data to be passed to API later
+  const hiddenFields = `
+  <input id="hidden-subject_code" type="text" name="subject_code" value=${sub_code} hidden>
+  <input id="hidden-teacher_id" type="number" name="teacher_id" value=${teacher_id} hidden>
+  <input id="hidden-date" type="date" name="date" value=${date} hidden>
+  `;
+
+  studentCards += hiddenFields;
 
   // inject the list of inputs in the DOM
   document.getElementById("attendance-list-container").innerHTML = studentCards;
