@@ -144,7 +144,7 @@ function toggleUpdateMode() {
 
   // form buttons
   let cancelBtn = document.getElementsByClassName("update-cancel-btn")[0];
-  let confirmBtn = document.getElementsByClassName("confirm-cancel-btn")[0];
+  let confirmBtn = document.getElementsByClassName("update-confirm-btn")[0];
 
   // enable or disable form buttons
   if (isChecked === true) {
