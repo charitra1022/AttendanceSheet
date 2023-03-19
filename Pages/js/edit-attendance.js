@@ -4,6 +4,7 @@ const getStudentCard = (params) => {
       sno: integer denoting count of students
       student_regno: string denoting student registration number
       student_name: string denoting student name
+      student_id: integer denoting student id
     }
   */
 
@@ -16,7 +17,7 @@ const getStudentCard = (params) => {
     <td>${params.student_regno}</td>
     <td>${params.student_name}</td>
     <td>
-      <input id=${params.student_regno} type="checkbox" name=${params.student_regno} class="attendance-checkbox" disabled ${checked}>
+      <input id="${params.student_regno}" data-student_id="${params.student_id}" type="checkbox" name=${params.student_regno} class="attendance-checkbox" disabled ${checked}>
     </td>
   </tr>
   `;
@@ -67,29 +68,28 @@ async function updatePageData(params) {
 // toggle edit mode in the DOM
 // disables or enables the editable fields
 function toggleUpdateMode() {
-  const isChecked = document.getElementById("enable-update-btn").checked;  
+  const isChecked = document.getElementById("enable-update-btn").checked;
   const listParent = document.getElementById("attendance-list-container");
   let checkBoxes = listParent.getElementsByClassName("attendance-checkbox");
 
   // enable or disable input checkbox
-  for (const checkBox of checkBoxes){
+  for (const checkBox of checkBoxes) {
     if (isChecked === true) checkBox.disabled = false;
     else checkBox.disabled = true;
-  };
+  }
 
   // form buttons
   let cancelBtn = document.getElementsByClassName("update-cancel-btn")[0];
   let confirmBtn = document.getElementsByClassName("confirm-cancel-btn")[0];
 
   // enable or disable form buttons
-  if(isChecked === true) {
+  if (isChecked === true) {
     cancelBtn.classList.remove("disabled");
     confirmBtn.classList.remove("disabled");
   } else {
     cancelBtn.classList.add("disabled");
     confirmBtn.classList.add("disabled");
   }
-
 }
 
 window.onload = () => {
