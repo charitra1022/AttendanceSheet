@@ -29,7 +29,7 @@ const getAttendanceAdapter = (params) => {
   let presentStudents = params.present;
 
   const html = `
-  <div class="card py-3 my-3">
+  <a class="attendance-item card py-3 my-3">
     <div class="container">
       <div class="row">
         <div class="col text-center">${date}</div>
@@ -37,7 +37,7 @@ const getAttendanceAdapter = (params) => {
         <div class="col text-center">${presentStudents}</div>
       </div>
     </div>
-  </div>
+  </a>
   `;
   return html;
 };
