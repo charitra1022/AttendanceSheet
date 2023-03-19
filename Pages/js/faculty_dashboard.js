@@ -66,7 +66,8 @@ const getCourseCard = (params) => {
   return courseCardElement;
 };
 
-function updatePageData() {
+async function updatePageData() {
+  // get details from local storage
   const teacher_details = JSON.parse(
     window.localStorage.getItem("teacher_details")
   );
@@ -80,42 +81,38 @@ function updatePageData() {
 
   // fetch teacher data
   const url = `http://localhost:5000/teacher-subjects?teacher_id=${teacher_details.teacher_id}`;
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => {
-      // get list of subjects
-      const subjects = data["result"];
+  const data = await fetchData(url);
 
-      let subjectCards = ""; // add all subject cards to a single string
-      let counter = 1; // to increment semester count for unique DOM id
+  // get list of subjects
+  const subjects = data["result"];
+  let subjectCards = ""; // add all subject cards to a single string
+  let counter = 1; // to increment semester count for unique DOM id
 
-      // run loop for each subject and add the html card together
-      subjects.forEach((subject) => {
-        // data to send to the card function for displaying information
-        const sub_params = {
-          semester_no: subject.subject_code[3],
-          sub_no: counter,
-          sub_name: subject.subject_name,
-          sub_code: subject.subject_code,
-          course_no: 1,
-          teacher_id: teacher_details.teacher_id,
-        };
-        counter++;
+  // run loop for each subject and add the html card together
+  for(const subject of subjects) {
+    // data to send to the card function for displaying information
+    const sub_params = {
+      semester_no: subject.subject_code[3],
+      sub_no: counter,
+      sub_name: subject.subject_name,
+      sub_code: subject.subject_code,
+      course_no: 1,
+      teacher_id: teacher_details.teacher_id,
+    };
+    counter++;
+    // add the html card to the string
+    subjectCards += getSubjectCard(sub_params);
+  }
 
-        // add the html card to the string
-        subjectCards += getSubjectCard(sub_params);
-      });
-
-      // data to send to the card function for displaying information
-      const course_params = {
-        subjects: subjectCards,
-        course_no: 1,
-        course_name: "MCA",
-      };
-      // add course card to the DOM
-      const coursesContainerEl = document.getElementById("courses-container");
-      coursesContainerEl.innerHTML += getCourseCard(course_params);
-    });
+  // data to send to the card function for displaying information
+  const course_params = {
+    subjects: subjectCards,
+    course_no: 1,
+    course_name: "MCA",
+  };
+  // add course card to the DOM
+  const coursesContainerEl = document.getElementById("courses-container");
+  coursesContainerEl.innerHTML += getCourseCard(course_params);
 }
 
 window.onload = () => {
