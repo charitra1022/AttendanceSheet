@@ -60,6 +60,7 @@ const getStudentCard = (params) => {
       student_regno: string denoting student registration number
       student_name: string denoting student name
       student_id: integer denoting student id
+      present: 1 or 0 denoting if student is present or not
     }
   */
 
