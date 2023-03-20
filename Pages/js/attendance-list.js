@@ -62,6 +62,9 @@ async function updatePageData(params) {
   // if no attendance exists, return
   if (att_dates.length === 0) return;
 
+  // remove empty placeholder
+  document.getElementById("nolist").remove();
+
   // store list of objects of the attendance details
   let att_details = [];
 
