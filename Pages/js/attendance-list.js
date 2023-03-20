@@ -33,6 +33,7 @@ async function updatePageData(params) {
   // retrieve subject code and teacher id from URLParams
   const sub_code = params["subject_code"];
   const teacher_id = params["teacher_id"];
+  const sub_name = params["subject-name"];
 
   // add href to the new button
   document.getElementById(
@@ -40,6 +41,7 @@ async function updatePageData(params) {
   ).href = `./addAttendance.html?subject_code=${sub_code}&teacher_id=${teacher_id}`;
 
   document.getElementById("subject-code-heading").innerText = sub_code;
+  document.getElementById("subject-name-heading").innerText = sub_name;
 
   // post request options for fetching date list for attendances
   const options = {
@@ -99,7 +101,7 @@ async function updatePageData(params) {
   let att_cards = "";
   let counter = 1;
   att_details.forEach((att_detail) => {
-    const data = {...att_detail, sno: counter}
+    const data = { ...att_detail, sno: counter };
     counter++;
     att_cards += getAttendanceAdapter(data);
   });
