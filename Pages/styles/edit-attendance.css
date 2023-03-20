@@ -54,6 +54,17 @@ body {
     box-shadow: 0 .5rem .5rem #659b9b;
     overflow-y: scroll;
 }
+/* hide verical scroll bars */
+.list-container::-webkit-scrollbar {
+display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.list-container {
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
+}
+
 .table-header{
     height: 3rem;
     position: sticky;
