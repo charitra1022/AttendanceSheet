@@ -96,8 +96,9 @@ const getStudentCard = (params) => {
   */
 
   const html = `
-  <tr class="">
-    <td scope="row">${params.sno}</td>
+
+  <tr class="table-row">
+    <th scope="row">${params.sno}</th>
     <td>${params.student_regno}</td>
     <td>${params.student_name}</td>
     <td>
