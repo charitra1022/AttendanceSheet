@@ -6,15 +6,15 @@
 
 ## Overview 
 
-    We have created a website that is created keeping in mind our respected faculty are facing. 
+    We have created a website that is created keeping in mind, issues our respected faculty are facing. 
 
 Issues they face are: 
     
     1. Marking in paper one by one for every student.
     
-    2. If they have multiple classes, they have to keep all the marksheet with themselves.
+    2. If they have multiple classes, they have to keep all the attendance sheet with themselves.
 
-    3. If in case they forget to bring the attendance sheet, they mark absentees on a paper they mark in original marksheet at their office. 
+    3. If in case they forget to bring the attendance sheet, they mark absentees on a paper than they mark in original marksheet at their office. 
 
     4. At the end semester, they have to count and evaluate percentage of each student one by one.
 
