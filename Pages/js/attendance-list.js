@@ -1,13 +1,3 @@
-const tableHead = `
-<div class="container">
-  <div class="row">
-    <div class="col text-center"><strong>Date</strong></div>
-    <div class="col text-center"><strong>Total</strong></div>
-    <div class="col text-center"><strong>Present</strong></div>
-  </div>
-</div> 
-`;
-
 // creates a card for attendance date
 const getAttendanceAdapter = (params) => {
   /*
@@ -27,15 +17,12 @@ const getAttendanceAdapter = (params) => {
   let subject_code = params.subject_code;
 
   const html = `
-  <a class="attendance-item card py-3 my-3" href="./updateAttendance.html?subject_code=${subject_code}&teacher_id=${teacher_id}&date=${date}" target="_blank">
-    <div class="container">
-      <div class="row">
-        <div class="col text-center">${date}</div>
-        <div class="col text-center">${totalStudents}</div>
-        <div class="col text-center">${presentStudents}</div>
-      </div>
-    </div>
-  </a>
+  <tr class="table-row" onclick="window.location.href='./updateAttendance.html?subject_code=${subject_code}&teacher_id=${teacher_id}&date=${date}'">
+    <th scope="row">${sno}</th>
+    <td>${date}</td>
+    <td>${totalStudents}</td>
+    <td>${presentStudents}</td>
+  </tr>
   `;
   return html;
 };
@@ -47,7 +34,9 @@ async function updatePageData(params) {
   const teacher_id = params["teacher_id"];
 
   // add href to the new button
-  document.getElementById("add-attendance-btn").href = `./addAttendance.html?subject_code=${sub_code}&teacher_id=${teacher_id}`;
+  document.getElementById(
+    "add-attendance-btn"
+  ).href = `./addAttendance.html?subject_code=${sub_code}&teacher_id=${teacher_id}`;
 
   document.getElementById("subject-code-heading").innerText = sub_code;
 
@@ -103,11 +92,12 @@ async function updatePageData(params) {
   }
   // add all date cards to a single string after data are fetched
   let att_cards = "";
-  att_cards += tableHead; // add the heading for the table
-
-  att_details.forEach(
-    (att_detail) => (att_cards += getAttendanceAdapter(att_detail))
-  );
+  let counter = 1;
+  att_details.forEach((att_detail) => {
+    const data = {...att_detail, sno: counter}
+    counter++;
+    att_cards += getAttendanceAdapter(data);
+  });
 
   const attndnceContr = document.getElementById("attendance-list-container");
   attndnceContr.innerHTML = att_cards;
