@@ -30,7 +30,7 @@ const getSubjectCard = (params) => {
 
   const subjectCardElement = `
     <div>
-      <a href="./attendance-list.html?subject_code=${sub_code}&teacher_id=${teacher_id}" target="_blank" class="subject-card card">
+      <a href="./attendance-list.html?subject_code=${sub_code}&teacher_id=${teacher_id}&subject-name=${sub_name}" target="_blank" class="subject-card card">
         <div>
           <div><strong id="course${course_no}-semester">Semester ${semester_no}</strong></div>
           <div id="subject${course_no}${sub_no}-name">${sub_name}</div>
@@ -90,7 +90,7 @@ async function updatePageData() {
   const data = await fetchData(url, {
     headers: {
       "auth-token": window.localStorage.getItem("authToken"),
-    }
+    },
   });
 
   // get list of subjects
