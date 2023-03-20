@@ -68,8 +68,8 @@ const getStudentCard = (params) => {
   if (params.present === 1) checked = "checked";
 
   const html = `
-  <tr class="">
-    <td scope="row">${params.sno}</td>
+  <tr class="table-row">
+    <th scope="row">${params.sno}</th>
     <td>${params.student_regno}</td>
     <td>${params.student_name}</td>
     <td>
