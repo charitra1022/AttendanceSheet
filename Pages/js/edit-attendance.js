@@ -17,13 +17,11 @@ async function updateButtonClicked() {
 
   // get required data from the hidden fields
   let sub_code = document.getElementById("hidden-subject_code").value;
-  let teacher_id = document.getElementById("hidden-teacher_id").value;
   let date = document.getElementById("hidden-date").value;
 
   // construct data to send to the API
   const dataForApi = {
     subject_code: sub_code,
-    teacher_id: parseInt(teacher_id),
     date: date,
     students: attn_details,
   };
@@ -41,6 +39,7 @@ async function updateButtonClicked() {
     method: "PUT",
     headers: {
       "Content-type": "application/json",
+      "auth-token": window.localStorage.getItem("authToken"),
     },
     body: JSON.stringify(dataForApi),
   };
@@ -50,7 +49,7 @@ async function updateButtonClicked() {
 
   // update request
   const res = await fetchData(url, options);
-  alert(res['msg']);
+  alert(res["msg"]);
 }
 
 const getStudentCard = (params) => {
@@ -93,10 +92,10 @@ async function updatePageData(params) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "auth-token": window.localStorage.getItem("authToken"),
     },
     body: JSON.stringify({
       subject_code: sub_code,
-      teacher_id: teacher_id,
       date: date,
     }),
   };
@@ -157,9 +156,18 @@ function toggleUpdateMode() {
   }
 }
 
+// checks if user is logged in, otherwise redirects to login page
+function checkAuth() {
+  const authToken = window.localStorage.getItem("authToken");
+  if (authToken == null) {
+    window.location.replace("./facultyLogin.html");
+  }
+}
+
 window.onload = () => {
   const urlSearchParams = new URLSearchParams(window.location.search);
   const params = Object.fromEntries(urlSearchParams.entries());
 
+  checkAuth();
   updatePageData(params);
 };
