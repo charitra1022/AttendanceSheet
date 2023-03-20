@@ -26,7 +26,7 @@ Issues they face are:
 
     1. Created a login page for teacher.
 
-    ![loginPage](https://user-images.githubusercontent.com/66827401/226345181-b6eb1fd9-f159-4699-a4ce-460031470b46.jpg)
+    ![Login Page](https://github.com/charitra1022/AttendanceSheet/blob/master/image/loginPage.jpg?raw=true)
 
     2. After login, teacher will have a DashBoard which contains all the subjects respective teacher is teaching which is categorized into courses with its department.
       ![facultyDashboard](https://user-images.githubusercontent.com/66827401/226345279-55321b35-e59a-405a-b635-c2d8ea508bff.jpg)
