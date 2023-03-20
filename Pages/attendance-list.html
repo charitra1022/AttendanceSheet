@@ -18,23 +18,57 @@
 
 <body>
   <main>
-    <div class="container">
-      <h2>MCA</h2>
-      <h2 id="subject-code-heading"></h2>
-
-      <div class="d-block">
-        <a role="button" id="add-attendance-btn" class="btn btn-primary" target="_blank">New +</a>
-      </div>
-
-      <div id="attendance-list-container" class="container-fluid">
-        <!-- data in this container will be added via js later -->
-
-        <!-- If no data is present, display below div -->
-        <div class="mt-auto mb-auto">
-          You don't have any attendance list
+    <div class="container-fluid main-container">
+      <!-- navbar -->
+      <div class="nav-header row p-1">
+        <div class="col brand">
+          <h2>AttendanceSheet</h2>
+        </div>
+        <div class="col">
+          <button role="button" id="add-attendance-btn" class="newbutton">New &nbsp; +</button>
         </div>
       </div>
+      <!-- navbar -->
+      <div class="container">
+          <div class="row row-cols-auto p-3 " style="align-items: center;">
+            <div class="course-heading col">
+              <span id="course-heading">MCA</span>
+            </div>
+            <div class="subject-code-heading col">
+              /<span id="subject-code-heading"></span> - <span id="subject-name-heading"></span>
+            </div>
+          </div>
+        <div class="card list-container container-fluid text-center">
+          <div >        
+            <!-- Dummy list -->
+            <div class="table-container">
+              <table class="table table-striped table-style ">
+                <thead style="position: sticky;top: 0" class="table-header">
+                  <tr>
+                    <th class="header" scope="col">Sno.</th>
+                    <th class="header" scope="col">Date</th>
+                    <th class="header" scope="col">Total</th>
+                    <th class="header" scope="col">Present</th>
+                  </tr>
+                </thead>
+                
+                
+                <tbody id="attendance-list-container">
+                  <!-- data in this container will be added via js later -->
+                </tbody>
 
+
+              </table>
+            </div>
+            <!-- Dummy list -->
+
+            <!-- If no data is present, display below div -->
+            <div class="row nolist">
+              <h3 class="p-5">Don't have any attendance list</h3>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 

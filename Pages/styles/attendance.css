@@ -1,8 +1,149 @@
-.attendance-item {
-  text-decoration: none;
-  color: black;
+/* default styles */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@460&display=swap");
+
+body {
+    font-family: "Montserrat", sans-serif;
 }
 
-.attendance-item:hover {
-  border: 1px solid black;
+.main-container {
+    background-color: #54bab9;
+    height: 100vh;
+    padding: 1rem;
+}
+
+.nav-header {
+    height: 4rem;
+    align-items: center;
+}
+
+.nav-header h2 {
+    color: white;
+}
+
+.newbutton {
+    float: right;
+    border-radius: 2rem;
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 0.5rem 2rem;
+}
+
+.newbutton:hover {
+    border-radius: 2rem;
+    background-color: #0e8388;
+    color: white;
+    border: none;
+    padding: 0.5rem 2rem;
+}
+
+.newbutton:active {
+    cursor: grabbing;
+}
+
+@media only screen and (max-width: 576px) {
+    .newbutton {
+        font-size: medium;
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .newbutton {
+        font-size: 2.4vw;
+    }
+
+    .nav-header h2 {
+        font-size: 6vw;
+    }
+
+    .main-container {
+        height: 110vh;
+    }
+}
+
+.nolist {
+    margin-top: 15rem;
+    color: rgba(0, 0, 0, 0.336);
+}
+
+/* Subject code style */
+.course-heading {
+    font-size: x-large;
+}
+
+.subject-code-heading {
+    margin-left: -1rem;
+    font-size: larger;
+}
+
+/* List Container style */
+.list-container {
+    padding: 0;
+    margin-top: -1rem;
+    height: 75vh;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 .5rem .5rem #659b9b;
+    overflow-y: scroll;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.list-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.list-container {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+/* table style */
+.table-header {
+    height: 3rem;
+    position: sticky;
+    top: 0;
+    font-size: large;
+    color: white;
+    background-color: #0e8388;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+    background-color: #dafcfc49;
+}
+
+.table-row:hover {
+    background-color: #d6efef;
+    cursor: pointer;
+}
+
+.table-row:active {
+    cursor: grabbing;
+}
+
+@media only screen and (max-width: 375px) {
+    .table-container {
+        font-size: small;
+    }
+
+    .table-header {
+        font-size: small;
+    }
+
+    .subject-code-heading {
+        font-size: medium;
+    }
+
+    .course-heading {
+        font-size: large;
+    }
 }
