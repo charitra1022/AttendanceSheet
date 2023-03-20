@@ -1,0 +1,153 @@
+/* default styles */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@460&display=swap");
+
+body {
+    font-family: "Montserrat", sans-serif;
+}
+.main-container {
+    background-color: #54bab9;
+    height: 100vh;
+    padding: 1rem;
+}
+.nav-header{
+    height: 4rem;
+    align-items: center;
+}
+.nav-header h2{
+    color: white;
+}
+.newbutton{
+    font-size: large;
+    float: right;
+    border-radius: 2rem;
+    color: black;
+    border: none;
+    padding: 0.5rem 2rem;
+}
+@media only screen and (max-width: 576px) {
+    .newbutton{
+        font-size: medium;
+        padding: 0.5rem 1rem;
+    }
+}
+@media only screen and (max-width: 375px){
+    .newbutton{
+        font-size: 4.4vw;
+    }
+    .nav-header h2{
+        font-size: 6vw;
+    }
+    .main-container{
+        height: 110vh;
+    }
+}
+
+/* table style */
+/* List Container style */
+.list-container{
+    padding: 0;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    height: 75vh;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 .5rem .5rem #659b9b;
+    overflow-y: scroll;
+}
+.table-header{
+    height: 3rem;
+    position: sticky;
+    top: 0;
+    font-size: large;
+    color:white;
+    background-color: #0e8388;
+}
+.header{
+    position: sticky;
+    top: 0;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+	background-color: #dafcfc49;
+}
+.table-row:hover{
+    background-color: #d6efef;
+    cursor: pointer;
+
+}
+.table-row:active{
+    cursor:grabbing;
+}
+@media only screen and (max-width: 375px){
+    .table-container{
+        font-size: small;
+    }
+    .table-header{
+        font-size: small;
+    }
+    .subject-code-heading{
+        font-size: medium;
+    }
+    .course-heading{
+        font-size: large;
+    }
+}
+/* Table Style */
+
+/* Update cancle btn */
+.update-cancel-btn{
+    float: left;
+    border-radius: 2rem;
+    background-color: #eba184;
+    color: black;
+    border: none;
+    padding: 0.5rem 2rem;
+    box-shadow: 0 .2rem .2rem #60696a;
+}
+.update-cancel-btn:active{
+    box-shadow: none;
+    color: white;
+    transform: translateY(1px);
+}
+.update-cancel-btn:hover{
+    background-color: #eb7343;
+    color: white;
+}
+
+.update-confirm-btn{
+    float: left;
+    border-radius: 2rem;
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 0.5rem 2rem;
+    margin-left: 1rem;
+    box-shadow: 0 .2rem .2rem #60696a;
+}
+.update-confirm-btn:active{
+    box-shadow: none;
+    transform: translateY(1px);
+}
+.update-confirm-btn:hover{
+    background-color: #0e8388;
+    color: white;
+}
+@media only screen and (max-width: 576px) {
+    .update-confirm-btn{
+        font-size: medium;
+        padding: 0.5rem 1rem;
+    }
+    .update-cancel-btn{
+        font-size: medium;
+        padding: 0.5rem 1rem;
+    }
+}
+@media only screen and (max-width: 375px){
+    .update-confirm-btn{
+        font-size: 4.4vw;
+    }
+    .update-cancel-btn{
+        font-size: 4.4vw;
+    }
+}
