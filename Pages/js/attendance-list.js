@@ -46,6 +46,9 @@ async function updatePageData(params) {
   const sub_code = params["subject_code"];
   const teacher_id = params["teacher_id"];
 
+  // add href to the new button
+  document.getElementById("add-attendance-btn").href = `./addAttendance.html?subject_code=${sub_code}&teacher_id=${teacher_id}`;
+
   document.getElementById("subject-code-heading").innerText = sub_code;
 
   // post request options for fetching date list for attendances
