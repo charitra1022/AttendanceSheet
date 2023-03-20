@@ -27,6 +27,7 @@ body {
     color: black;
     border: none;
     padding: 0.5rem 2rem;
+    text-decoration: none;
 }
 
 .newbutton:hover {
