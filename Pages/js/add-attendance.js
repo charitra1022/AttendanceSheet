@@ -58,7 +58,7 @@ function validateDateElement() {
 
 async function addButtonClicked() {
   const dateStr = validateDateElement();
-  const dataForApi = {...getAttnDataForApi(), date: dateStr};
+  const dataForApi = { ...getAttnDataForApi(), date: dateStr };
 
   const confirmation = confirm(
     "This action is irreversible!\nDo you want to add new Attendance sheet?\n"
@@ -71,6 +71,7 @@ async function addButtonClicked() {
     method: "POST",
     headers: {
       "Content-type": "application/json",
+      "auth-token": window.localStorage.getItem("authToken"),
     },
     body: JSON.stringify(dataForApi),
   };
@@ -80,7 +81,7 @@ async function addButtonClicked() {
   alert(res["msg"]);
 
   // navigate to update page after adding data
-  const newUrl = `./updateAttendance.html?subject_code=${dataForApi.subject_code}&teacher_id=${dataForApi.teacher_id}&date=${dataForApi.date}`
+  const newUrl = `./updateAttendance.html?subject_code=${dataForApi.subject_code}&teacher_id=${dataForApi.teacher_id}&date=${dataForApi.date}`;
   window.location.replace(newUrl);
 }
 
@@ -122,9 +123,23 @@ async function updatePageData(params) {
   const semester = sub_code[3];
 
   // fetch data for student list
-  const url = `http://localhost:5000/students?course=${course}&semester=${semester}&mode=min`;
-  const data = await fetchData(url);
+  const url = "http://localhost:5000/students";
+  // post request options for fetching date list for attendances
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "auth-token": window.localStorage.getItem("authToken"),
+    },
+    body: JSON.stringify({
+      course: "MCA",
+      semester: "2",
+      mode: "min",
+    }),
+  };
+  const data = await fetchData(url, options);
   const studentList = data["result"];
+  console.log(studentList);
 
   let studentCards = ""; // contains all cards
 
@@ -149,9 +164,18 @@ async function updatePageData(params) {
   document.getElementById("attendance-list-container").innerHTML = studentCards;
 }
 
+// checks if user is logged in, otherwise redirects to login page
+function checkAuth() {
+  const authToken = window.localStorage.getItem("authToken");
+  if (authToken == null) {
+    window.location.replace("./facultyLogin.html");
+  }
+}
+
 window.onload = () => {
   const urlSearchParams = new URLSearchParams(window.location.search);
   const params = Object.fromEntries(urlSearchParams.entries());
 
+  checkAuth();
   updatePageData(params);
 };

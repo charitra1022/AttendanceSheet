@@ -2,9 +2,10 @@
 //   const teacher_id = parseInt(params['teacher_id']);
 // }
 
-// just a small dummy function until logout is implemented in backend
-function back() {
-  window.history.back();
+// remove the auth token and refresh page
+function logout() {
+  window.localStorage.clear();
+  window.location.reload();
 }
 
 // returns subject card DOM element
@@ -85,8 +86,12 @@ async function updatePageData() {
     teacher_details.teacher_name;
 
   // fetch teacher data
-  const url = `http://localhost:5000/teacher-subjects?teacher_id=${teacher_details.teacher_id}`;
-  const data = await fetchData(url);
+  const url = `http://localhost:5000/teacher-subjects`;
+  const data = await fetchData(url, {
+    headers: {
+      "auth-token": window.localStorage.getItem("authToken"),
+    }
+  });
 
   // get list of subjects
   const subjects = data["result"];
@@ -94,7 +99,7 @@ async function updatePageData() {
   let counter = 1; // to increment semester count for unique DOM id
 
   // run loop for each subject and add the html card together
-  for(const subject of subjects) {
+  for (const subject of subjects) {
     // data to send to the card function for displaying information
     const sub_params = {
       semester_no: subject.subject_code[3],
@@ -120,10 +125,19 @@ async function updatePageData() {
   coursesContainerEl.innerHTML += getCourseCard(course_params);
 }
 
+// checks if user is logged in, otherwise redirects to login page
+function checkAuth() {
+  const authToken = window.localStorage.getItem("authToken");
+  if (authToken == null) {
+    window.location.replace("./facultyLogin.html");
+  }
+}
+
 window.onload = () => {
   // const urlSearchParams = new URLSearchParams(window.location.search);
   // const params = Object.fromEntries(urlSearchParams.entries());
   // updatePageData(params);
 
+  checkAuth();
   updatePageData();
 };

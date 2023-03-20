@@ -15,6 +15,7 @@ const getAttendanceAdapter = (params) => {
   let presentStudents = params.present;
   let teacher_id = params.teacher_id;
   let subject_code = params.subject_code;
+  let sno = params.sno;
 
   const html = `
   <tr class="table-row" onclick="window.location.href='./updateAttendance.html?subject_code=${subject_code}&teacher_id=${teacher_id}&date=${date}'">
@@ -45,6 +46,7 @@ async function updatePageData(params) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "auth-token": window.localStorage.getItem("authToken"),
     },
     body: JSON.stringify({
       subject_code: sub_code,
@@ -53,12 +55,15 @@ async function updatePageData(params) {
   };
 
   // fetch attendance data for a teacher and a subject
-  const url = `http://localhost:5000/attendence-date`;
+  const url = `http://localhost:5000/attendance-date`;
   const data = await fetchData(url, options);
   const att_dates = data["dates"];
 
   // if no attendance exists, return
   if (att_dates.length === 0) return;
+
+  // remove empty placeholder
+  document.getElementById("nolist").remove();
 
   // store list of objects of the attendance details
   let att_details = [];
@@ -71,19 +76,19 @@ async function updatePageData(params) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "auth-token": window.localStorage.getItem("authToken"),
       },
       body: JSON.stringify({
         subject_code: sub_code,
-        teacher_id: teacher_id,
         date: att_date,
       }),
     };
     // url to request attendance details
-    const attDetailsUrl = `http://localhost:5000/attendence-details`;
+    const attDetailsUrl = `http://localhost:5000/attendance-details`;
     const data = await fetchData(attDetailsUrl, dateReqOpts);
     // add the attendance data to the list
     attData = {
-      ...data["resp"],
+      ...data["result"],
       date: att_date,
       teacher_id: teacher_id,
       subject_code: sub_code,
@@ -103,9 +108,18 @@ async function updatePageData(params) {
   attndnceContr.innerHTML = att_cards;
 }
 
+// checks if user is logged in, otherwise redirects to login page
+function checkAuth() {
+  const authToken = window.localStorage.getItem("authToken");
+  if (authToken == null) {
+    window.location.replace("./facultyLogin.html");
+  }
+}
+
 window.onload = () => {
   const urlSearchParams = new URLSearchParams(window.location.search);
   const params = Object.fromEntries(urlSearchParams.entries());
 
+  checkAuth();
   updatePageData(params);
 };

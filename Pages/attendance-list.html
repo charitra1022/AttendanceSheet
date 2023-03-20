@@ -25,21 +25,21 @@
           <h2>AttendanceSheet</h2>
         </div>
         <div class="col">
-          <button role="button" id="add-attendance-btn" class="newbutton">New &nbsp; +</button>
+          <a role="button" id="add-attendance-btn" class="newbutton" target="_blank">New &nbsp; +</a>
         </div>
       </div>
       <!-- navbar -->
       <div class="container">
-          <div class="row row-cols-auto p-3 " style="align-items: center;">
-            <div class="course-heading col">
-              <span id="course-heading">MCA</span>
-            </div>
-            <div class="subject-code-heading col">
-              /<span id="subject-code-heading"></span> - <span id="subject-name-heading"></span>
-            </div>
+        <div class="row row-cols-auto p-3 " style="align-items: center;">
+          <div class="course-heading col">
+            <span id="course-heading">MCA</span>
           </div>
+          <div class="subject-code-heading col">
+            /<span id="subject-code-heading"></span> - <span id="subject-name-heading"></span>
+          </div>
+        </div>
         <div class="card list-container container-fluid text-center">
-          <div >        
+          <div>
             <!-- Dummy list -->
             <div class="table-container">
               <table class="table table-striped table-style ">
@@ -51,8 +51,8 @@
                     <th class="header" scope="col">Present</th>
                   </tr>
                 </thead>
-                
-                
+
+
                 <tbody id="attendance-list-container">
                   <!-- data in this container will be added via js later -->
                 </tbody>
@@ -60,10 +60,9 @@
 
               </table>
             </div>
-            <!-- Dummy list -->
 
             <!-- If no data is present, display below div -->
-            <div class="row nolist">
+            <div class="row nolist" id="nolist">
               <h3 class="p-5">Don't have any attendance list</h3>
             </div>
           </div>
