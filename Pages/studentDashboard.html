@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Boostrap 5.0.2 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <!-- fontawesome 4.7.0 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./styles/dashboard.css">
+
+    <title>Faculty Dashboard</title>
+</head>
+
+<body>
+    <header>
+        <div class="header row p-1">
+            <div class="col brand">
+                <h2>AttendanceSheet</h2>
+            </div>
+            <div class="col logoutbtn">
+                <a id="student-logout" onclick="logout()" class="btn" role="button">Logout</a>
+            </div>
+        </div>
+        <!-- navbar -->
+    </header>
+
+    <main>
+        <!-- profile info -->
+        <div class="left-navbar">
+            <div class="container text-center">
+                <div class="p-4 dash-heading">
+                    <h2>Dashboard</h2>
+                </div>
+                <div class="mx-1 mx-md-5 rounded-circle">
+                    <img src="./images/profile.png" class="img-fluid rounded-circle profile-image" alt="profile image">
+                </div>
+                <h3 class="pt-3"><span id="student-name">Charitra Agarwal</span></h3>
+                <h3 class="pt-1 fw-bold"><span id="student-regno">charitracsed@mnnit.ac.in</span></h3>
+                <h5 class="pt-1"><span id="student-email">charitracsed@mnnit.ac.in</span></h5>
+                <div class="date-container">
+                    <h5 class="pt-1"><span id="date">
+                            <script>
+                                const dateObj1 = new Date();
+                                document.write(dateObj1.getDate() + '-' + (dateObj1.getMonth() + 1) + '-' + dateObj1.getFullYear())
+                            </script>
+                        </span></h5>
+                </div>
+            </div>
+            <div class="row position-absolute bottom-0  end-40 text-center left-footer">
+                <h6 class="pt-1 col day" id="day"></h6>
+                <h6 class="pt-1 col month"><span id="month"></span>
+                    <h6 class="pt-1 col year"><span id="year"></span>
+                        <span id="date">
+                            <script>
+                                const monthName = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                                const dateObj = new Date();
+                                document.getElementById("day").innerHTML = dateObj.getDate();
+                                document.getElementById("month").innerHTML = monthName[dateObj.getMonth()];
+                                document.getElementById("year").innerHTML = dateObj.getFullYear();
+                            </script>
+                        </span>
+            </div>
+        </div>
+
+        <!-- dashboard -->
+        <div class="right-section">
+
+            <!-- add courses via javascript -->
+            <div id="courses-container" class="courses-container"></div>
+        </div>
+    </main>
+
+    <!-- Boostrap 5.0.2 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Common JS -->
+    <script src="./js/common.js"></script>
+
+    <!-- Dashboard JS -->
+    <script src="./js/student_dashboard.js"></script>
+</body>
+
+</html>
